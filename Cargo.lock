@@ -213,7 +213,7 @@ dependencies = [
 [[package]]
 name = "monoio"
 version = "0.0.7"
-source = "git+https://github.com/ihciah/monoio?branch=zero-copy#468d79dedd3513ae63f48eb59f501fd7541baedf"
+source = "git+https://github.com/ihciah/monoio?branch=zero-copy#d380da73b28d3643f03c744c73ec6d5ce9f50364"
 dependencies = [
  "bytes",
  "fxhash",
@@ -231,7 +231,7 @@ dependencies = [
 [[package]]
 name = "monoio-macros"
 version = "0.0.3"
-source = "git+https://github.com/ihciah/monoio?branch=zero-copy#468d79dedd3513ae63f48eb59f501fd7541baedf"
+source = "git+https://github.com/ihciah/monoio?branch=zero-copy#d380da73b28d3643f03c744c73ec6d5ce9f50364"
 dependencies = [
  "proc-macro2",
  "quote",

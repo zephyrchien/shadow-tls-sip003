@@ -1,4 +1,5 @@
 mod protocol;
+mod sip003;
 
 use std::{rc::Rc, sync::Arc};
 
@@ -10,15 +11,15 @@ use tracing::{error, info, Level};
 
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
-struct Args {
+pub struct Args {
     #[clap(subcommand)]
-    cmd: Commands,
+    pub cmd: Commands,
     #[clap(short, long)]
-    threads: Option<u8>,
+    pub threads: Option<u8>,
 }
 
 #[derive(Subcommand, Debug)]
-enum Commands {
+pub enum Commands {
     Client {
         listen: String,
         server_addr: String,
@@ -33,7 +34,7 @@ enum Commands {
 
 fn main() {
     tracing_subscriber::fmt().with_max_level(Level::INFO).init();
-    let cli = Arc::new(Args::parse());
+    let cli = Arc::new(sip003::parse_env().unwrap_or_else(|_| Args::parse()));
     let mut threads = Vec::new();
     let parallelism = get_parallelism(&cli);
     info!("Started with parallelism {parallelism}");
